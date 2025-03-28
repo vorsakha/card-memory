@@ -22,7 +22,7 @@ Build a small part of a card memory game based on your assigned role. This is me
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Card-Memory
+   cd belolabs1024
    ```
 3. Set up the backend:
    ```bash
