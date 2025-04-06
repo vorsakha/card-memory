@@ -1,41 +1,234 @@
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.pageContainer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-h2 {
+.loginContainer {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.formWrapper {
+    width: 100%;
+}
+
+.title {
+    color: #2d3748;
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #718096;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 0.65rem;
+    border: 2px solid #e2e8f0;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.2s;
 }
 
-.button {
-    padding: 10px 15px;
-    border-radius: 4px;
+.input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.loginButton,
+.registerButton {
+    flex: 1;
+    padding: 0.75rem;
     border: none;
-    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .loginButton {
-    background-color: #007bff;
+    background-color: #667eea;
+    color: white;
+}
+
+.loginButton:hover {
+    background-color: #5a67d8;
 }
 
 .registerButton {
-    background-color: #6c757d;
+    background-color: #edf2f7;
+    color: #4a5568;
 }
 
-.error {
-    color: red;
+.registerButton:hover {
+    background-color: #e2e8f0;
+}
+
+.modesSelectPlaceholder {
+    color: #72767c;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Modal */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    outline: none;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
     text-align: center;
+}
+
+.levelButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.levelButton {
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.easyButton {
+    background-color: #3fa369;
+    color: white;
+}
+.easyButton:hover {
+    background-color: #328655;
+}
+
+.mediumButton {
+    background-color: #c1a645;
+    color: white;
+}
+.mediumButton:hover {
+    background-color: #b59f3b;
+}
+
+.hardButton {
+    background-color: #c55252;
+    color: white;
+}
+.hardButton:hover {
+    background-color: #b03f3f;
+}
+
+
+.modeSelectButton {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.modeSelectButton:hover {
+    border-color: #cbd5e0;
+    background-color: #edf2f7;
+}
+
+.modeSelectButton:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+@media (max-width: 480px) {
+    .loginContainer {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+    }
+
+    .modal {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .loginContainer {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
 }

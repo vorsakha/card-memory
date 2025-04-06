@@ -1,6 +1,7 @@
 import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Login from './Login/Login';
 import Register from './Login/Register';
 import Play from './MemoryCardGame/Play';
@@ -63,5 +64,6 @@ const App = () => {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
+    <ToastContainer />
   </StrictMode>
 );
